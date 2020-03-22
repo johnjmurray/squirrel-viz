@@ -13,13 +13,12 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
 		let squirrelDataLong = [];
         let goodCols = ["PrimaryFurColor", "SquirrelID", "Lat", "Long"]
         squirrelData.forEach(row => {
-				squirrelDataLong.push({
-					"PrimaryFurColor": row["primary_fur_color"],
-					"SquirrelID": row["unique_squirrel_id"],
-					"Lat": row["y"],
-					"Long": row["x"],
-				})
-			}
+			squirrelDataLong.push({
+				"PrimaryFurColor": row["primary_fur_color"],
+				"SquirrelID": row["unique_squirrel_id"],
+				"Lat": row["y"],
+				"Long": row["x"],
+			})
         })
 		console.log(squirrelDataLong[217])
 
