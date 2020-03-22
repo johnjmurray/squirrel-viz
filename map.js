@@ -35,7 +35,13 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .attr("viewBox", `0 0 ${width} ${height}`)
             .classed("svg-content", true);
 
-        let projection = d3.geoNaturalEarth1().translate([width / 2, height / 2]);
+        			
+	//https://stackoverflow.com/questions/28116230/displaying-ny-state-with-counties-map-via-shp-and-topojson
+        var projection = d3.geo.mercator()
+			.center([-74.875366, 42.88])
+			.scale(4500)
+			.translate([width / 2, height / 2])
+			
         let path = d3.geoPath().projection(projection);
 
 
