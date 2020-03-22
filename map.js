@@ -29,37 +29,18 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
 
         const width = 900;
         const height = 500;
-        /*
+        
 		let svg = d3.select("div.map-container")
             .append("svg")
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", `0 0 ${width} ${height}`)
             .classed("svg-content", true);
-		*/	
+		
 		//https://stackoverflow.com/questions/28116230/displaying-ny-state-with-counties-map-via-shp-and-topojson
         let projection = d3.geoMercator().center([-73.9924856,40.7625012]).scale(1000).translate([width / 2, height / 2]);	
-        //let path = d3.geoPath().projection(projection);
+        let path = d3.geoPath().projection(projection);
 
-		var path = d3.geoPath()
-			.projection(projection)
 
-		var svg = d3.select("#map").append("svg")
-			.attr("width", width)
-			.attr("height", height)
-			.style("border", "1px solid black");
-
-		d3.json("centralPark.json", function(error, ny) {
-			if (error) return console.error(error);
-			console.log(ny)
-			svg.append("g")
-				.selectAll("path")
-				.data(centralPark.arcs)
-				.enter()
-				.append("path")
-				.attr("d", path)
-				.attr("class", "country-state");
-		});
-/*
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg.append("g")
             .selectAll("path")
@@ -68,7 +49,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .append("path")
             .attr("d", path)
             .attr("class", "country-state");
-*/
+
         const factor = 0.5;
 
         svg
