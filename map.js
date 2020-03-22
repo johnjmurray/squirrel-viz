@@ -8,21 +8,18 @@ const centralParkJSON = 'centralPark.json';
 
 Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
     .then(result => {
-        let centralPark = result[0],squirrelData = result[1]
+        let centralPark = result[0],squirrelData = result[1];
 		// Reshape from wide to long format.
 		let squirrelDataLong = [];
         let goodCols = ["PrimaryFurColor", "SquirrelID", "Lat", "Long"]
         squirrelData.forEach(row => {
-            for (let colname in row) {
-                if (!goodCols.includes(colname)) {
-                    squirrelDataLong.push({
-                        "PrimaryFurColor": row["primary_fur_color"],
-                        "SquirrelID": row["unique_squirrel_id"],
-                        "Lat": row["y"],
-                        "Long": row["x"],
-                    })
-                }
-            }
+				squirrelDataLong.push({
+					"PrimaryFurColor": row["primary_fur_color"],
+					"SquirrelID": row["unique_squirrel_id"],
+					"Lat": row["y"],
+					"Long": row["x"],
+				})
+			}
         })
 		console.log(squirrelDataLong[217])
 
