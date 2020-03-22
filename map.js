@@ -51,12 +51,15 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
 		d3.json("centralPark.json", function(error, ny) {
 			if (error) return console.error(error);
 			console.log(ny)
-			svg.append("path")
-			   .datum(topojson.feature(ny, ny.objects.cty036))
-			   .datum(topojson.mesh(ny, ny.arcs, ))
-			   .attr("d", path);
+			svg.append("g")
+				.selectAll("path")
+				.data(centralPark.arcs)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.attr("class", "country-state");
 		});
-
+/*
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg.append("g")
             .selectAll("path")
@@ -65,7 +68,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .append("path")
             .attr("d", path)
             .attr("class", "country-state");
-
+*/
         const factor = 0.5;
 
         svg
