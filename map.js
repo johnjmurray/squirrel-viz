@@ -47,7 +47,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .data(centralPark.geometries)
             .enter()
             .append("path")
-
+            .attr("d", path)
 
         const factor = 0.5;
 
