@@ -2,16 +2,15 @@
 
 //const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.geojson`;
 const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.csv`;
-const nyJSON = "ny.geo.json"
+const centralParkJSON = 'centralPark.json';
 
-Promise.all([d3.json(nyJSON), d3.csv(squirrelDataURL)])
+Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
     .then(result => {
-        let countries = result[0],
-            squirrelData = result[1];
-
+        let centralPark = result[0],
+			squirrelData = result[1]
 
         // Reshape from wide to long format.
-        let goodCols = ["Country/Region", "Province/State", "Lat", "Long"]
+        let goodCols = ["PrimaryFurColor", "SquirrelID", "Lat", "Long"]
         squirrelData.forEach(row => {
             for (let colname in row) {
                 if (!goodCols.includes(colname)) {
@@ -44,7 +43,7 @@ Promise.all([d3.json(nyJSON), d3.csv(squirrelDataURL)])
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg.append("g")
             .selectAll("path")
-            .data(countries.features)
+            .data(centralPark.features)
             .enter()
             .append("path")
             .attr("d", path)
@@ -60,8 +59,6 @@ Promise.all([d3.json(nyJSON), d3.csv(squirrelDataURL)])
             .attr("class", "circle")
             .attr("cx", d => projection([d.Long, d.Lat])[0])
             .attr("cy", d => projection([d.Long, d.Lat])[1])
-
-
 
     })
     .catch(err => console.error(err));
