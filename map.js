@@ -40,7 +40,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
         let projection = d3.geoMercator().center([-73.9924856,40.7625012]).scale(1000).translate([width / 2, height / 2]);	
         //let path = d3.geoPath().projection(projection);
 
-		var path = d3.geo.path()
+		var path = d3.geoPath()
 			.projection(projection)
 
 		var svg = d3.select("#map").append("svg")
