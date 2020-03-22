@@ -9,13 +9,13 @@ svg {
 
 .park-arc {
 	fill: #0B6623;
-	stroke: #000000;
+	stroke: #d3d3d3;
 	stroke-width: 0.75;
+	fill-opacity: 0.15;
 }
 
 .circle {
     fill: #E5000C;
     stroke: #000000;
     stroke-width: 0.1;
-    fill-opacity: 0.15;
 }
