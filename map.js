@@ -44,11 +44,10 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg.append("g")
             .selectAll("path")
-            .data(centralPark.arcs)
+            .data(centralPark.geometries)
             .enter()
             .append("path")
-            .attr("d", path)
-            .attr("class", "country-state");
+
 
         const factor = 0.5;
 
