@@ -2,7 +2,7 @@
 
 //const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.geojson`;
 const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.csv`;
-//const centralParkJSON = 'centralPark.json';
+const centralParkJSON = 'centralPark.json';
 
 
 
