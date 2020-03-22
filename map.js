@@ -22,7 +22,6 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
                         "Lat": row["y"],
                         "Long": row["x"],
                     })
-				console.log(squirrelData);
                 }
             }
         })
