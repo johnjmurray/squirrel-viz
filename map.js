@@ -45,6 +45,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .enter()
             .append("path")
             .attr("d", path)
+			.attr("class","park-arcs")
 
 
 		svg
