@@ -21,13 +21,15 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
                         "SquirrelID": row["unique_squirrel_id"],
                         "Lat": row["y"],
                         "Long": row["x"],
+					console.log(SquirrelID)
                     })
                 }
             }
         })
+		
 
 
-        // let casesOnly = squirrelData.map(d => d.Cases);
+        let casesOnly = squirrelData.map(d => d.Cases);
 
         const width = 900;
         const height = 500;
