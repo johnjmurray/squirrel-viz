@@ -7,10 +7,10 @@ const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.csv`;
 
 
 Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
-Promise.all([d3.csv(squirrelDataURL)])
+//Promise.all([d3.csv(squirrelDataURL)])
     .then(result => {
         let centralPark = result[0],squirrelData = result[1]
-		let squirrelData = result[0]
+		//let squirrelData = result[0]
         // Reshape from wide to long format.
 		let squirrelDataLong = [];
         let goodCols = ["PrimaryFurColor", "SquirrelID", "Lat", "Long"]
