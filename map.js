@@ -60,10 +60,7 @@ Promise.all([d3.json(nyJSON), d3.csv(squirrelDataURL)])
             .attr("class", "circle")
             .attr("cx", d => projection([d.Long, d.Lat])[0])
             .attr("cy", d => projection([d.Long, d.Lat])[1])
-            .attr("r", d => Math.sqrt(d[latestDate]) * factor)
 
-        d3.select(".date-output")
-            .text(latestDate)
 
 
     })
