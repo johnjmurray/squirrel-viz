@@ -4,6 +4,8 @@
 const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.csv`;
 const centralParkJSON = 'centralPark.json';
 
+
+
 Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
     .then(result => {
         let centralPark = result[0],
@@ -57,8 +59,9 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .enter()
             .append("circle")
             .attr("class", "circle")
-            .attr("cx", d => projection([d.Long, d.Lat])[0])
-            .attr("cy", d => projection([d.Long, d.Lat])[1])
+            .attr("cx",projection([Long, Lat])[0])
+            .attr("cy",projection([Long, Lat])[1])
+			.attr("r","10")
 
     })
     .catch(err => console.error(err));
