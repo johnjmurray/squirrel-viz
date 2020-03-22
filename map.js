@@ -2,8 +2,7 @@
 
 //const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.geojson`;
 const squirrelDataURL = `https://data.cityofnewyork.us/resource/vfnx-vebw.csv`;
-//const nyJSON = "ny.geo.json"
-const nyJSON = "https://github.com/kaczmarj/covid19vis/blob/master/world.geo.json"
+const nyJSON = "ny.geo.json"
 
 Promise.all([d3.json(nyJSON), d3.csv(squirrelDataURL)])
     .then(result => {
