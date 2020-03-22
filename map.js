@@ -10,7 +10,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
     .then(result => {
         let centralPark = result[0],
 			squirrelData = result[1]
-
+		console.log(squirrelData)
         // Reshape from wide to long format.
         let goodCols = ["PrimaryFurColor", "SquirrelID", "Lat", "Long"]
         squirrelData.forEach(row => {
