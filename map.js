@@ -33,7 +33,6 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
 		//https://stackoverflow.com/questions/28116230/displaying-ny-state-with-counties-map-via-shp-and-topojson
         let projection = d3.geoMercator().center([-73.968285,40.785091]).scale(500000).translate([width/2, height/2]);	
         let path = d3.geoPath().projection(projection);
-		//let uniqueSquirrels = d3.map(squirrelDataLong, d => d.SquirrelID).keys()
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg.append("g")
             .selectAll("path")
@@ -43,7 +42,8 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .attr("d", path)
 			.attr("class","park-arc")
 
-
+		let colorMap = {"Black":"#000000","Cinnamon":"#AA5518","Gray":"#808080"}
+		
 		svg
 			.selectAll("caseCircles")
 			.data(squirrelDataLong)
@@ -53,6 +53,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
 			.attr("cx", d => projection([d.Long, d.Lat])[0])
 			.attr("cy", d => projection([d.Long, d.Lat])[1])
 			.attr("r","1")
+			.style("fill", r => colorMap[r["PrimaryFurColor"]])
 
     })
     .catch(err => console.error(err));
