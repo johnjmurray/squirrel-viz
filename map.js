@@ -37,13 +37,13 @@ Promise.all([d3.csv(squirrelDataURL)])
             .attr("viewBox", `0 0 ${width} ${height}`)
             .classed("svg-content", true);
 		//https://stackoverflow.com/questions/28116230/displaying-ny-state-with-counties-map-via-shp-and-topojson
-        let projection = d3.geoMercator().center([-74.99,41.76]).scale(10000).translate([width, height]);	
+        let projection = d3.geoMercator().center([-74,41]).scale(100).translate([width, height]);	
         let path = d3.geoPath().projection(projection);
 
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg.append("g")
             .selectAll("path")
-            //.data(centralPark.geometries)
+            .data(centralPark.geometries)
             .enter()
             .append("path")
             .attr("d", path)
