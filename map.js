@@ -22,8 +22,8 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
         })
 		console.log(squirrelDataLong[217])
 
-        const width = 2000;	
-        const height = 1000;
+        const width = 500;	
+        const height = 250;
         
 		let svg = d3.select("div.map-container")
             .append("svg")
