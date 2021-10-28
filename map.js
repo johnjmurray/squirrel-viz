@@ -42,7 +42,7 @@ Promise.all([d3.json(centralParkJSON),d3.csv(squirrelDataURL)])
             .attr("d", path)
 			.attr("class","park-arc")
 
-		let colorMap = {"Black":"#000000","Cinnamon":"#AA5518","Gray":"#808080","":"ffffff"}
+		let colorMap = {"Black":"#000000","Cinnamon":"#AA5518","Gray":"#808080","":"6aodad"}
 		
 		svg
 			.selectAll("caseCircles")
