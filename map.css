@@ -8,10 +8,8 @@ svg {
 }
 
 .park-arc {
-	fill: #0B6623;
 	stroke: #d3d3d3;
 	stroke-width: 0.75;
-	fill-opacity: 0.15;
 }
 
 .circle {
